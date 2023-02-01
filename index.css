@@ -1,0 +1,101 @@
+.main {
+    width: 800px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(233,238,247,1) 52%, rgba(77,77,82,1) 100%);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0px;
+    justify-content: center;
+}
+h2{
+    font-size: 38px;
+    font-weight: 400;
+    color: #000;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Titan One", sans-serif;
+}
+
+table{
+    margin: auto;
+}
+
+/* .choice-player{
+    
+} */
+
+th{
+    height: 100px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    font-family: "Titan One", sans-serif;
+    border: 2px solid white;
+    border-radius: 15px;
+    background-color: black; 
+}
+
+td {
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: white;
+    width: 150px;
+    height: 150px;
+} 
+
+.cross {
+    background: #CD6D45;
+    height: 100px; 
+    width: 20px;
+    position: relative; 
+    margin: auto;
+}
+.cross::after {
+    content: "";
+    height: 20px; 
+    width: 100px;
+    background: #CD6D45;
+    position: absolute; 
+    left: -40px; 
+    top: 40px;
+}
+.cross {
+    transform: rotate(-45deg);
+}
+.cross::after {
+    transform: rotate(180deg);
+}
+
+.ring {
+    /* display: inline-block; */
+    
+    width: 50px;
+    height: 50px;
+    /* position: relative; */
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: auto;
+    border: 20px solid #9bc7f0;
+}
+
+.glow-button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #4d4d52 inset, 0 0 0 0 #4d4d52;
+    font-family: 'Titan One', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 10px;
+    color: white;
+    transition: .15s ease-in-out;
+  }
+  .glow-button:hover {
+    box-shadow: 0 0 10px 0 #dce0e3 inset, 0 0 10px 4px #dce0e3;
+    color: black;
+  }
