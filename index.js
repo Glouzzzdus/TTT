@@ -7,6 +7,9 @@ function changeClass(el){
 
 function refresh(){
     isDone = false;
+    document.getElementById("player-title").className = "choise-player";
+    document.getElementById("player-sign").className = "choise-player";
+    document.getElementById("player-title").textContent = "Active player";
     let randomImage = Math.floor(Math.random()* 10);    
     let c1 = document.getElementById("player");
     if(randomImage%2===0 & c1.className === "ring"){        
@@ -44,8 +47,16 @@ function isVictory(fields) {
 			return true;
 		}
 	}
-
 	return false;
+}
+
+function IsDraw(fields){
+    for (let field in fields){
+        if (field.className === ""){
+            return false;
+        }        
+    }
+    return true;
 }
 
 function putSign(el){
@@ -54,18 +65,25 @@ function putSign(el){
     }
     let fields = document.querySelectorAll("td > div");
     let c1 = document.getElementById("player");
-    let winField = document.getElementsByTagName("th");
     if(el.querySelector("div").className === ""){
         el.querySelector("div").className = c1.className;        
         if (isVictory(fields)){
             isDone = true;
-            if(c1.className = "cross"){
-                winField.classList.replace("choise-player", "winner-cross");
+            if(c1.className === "cross"){
+                document.getElementById("player-title").className = "winner-cross";
+                document.getElementById("player-sign").className = "winner-cross";
+                document.getElementById("player-title").textContent = "Cross won!!!";                                
             }
-            else{
-                winField.classList.replace("choise-player", "winner-ring");
+            else if(c1.className === "ring"){
+                document.getElementById("player-title").className = "winner-ring";
+                document.getElementById("player-sign").className = "winner-ring";
+                document.getElementById("player-title").textContent = "Rings won!!!";
             }
             return;          
+        }
+        if (IsDraw(fields)){
+            document.getElementById("player-title").textContent = "- DRAW -";
+            return;
         }
         changeClass(c1);        
     }    
