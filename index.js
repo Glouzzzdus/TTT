@@ -1,9 +1,12 @@
+let isDone = false;
+
 function changeClass(el){
     el.classList.toggle("ring");
     el.classList.toggle("cross");
 }
 
 function refresh(){
+    isDone = false;
     let randomImage = Math.floor(Math.random()* 10);    
     let c1 = document.getElementById("player");
     if(randomImage%2===0 & c1.className === "ring"){        
@@ -46,13 +49,16 @@ function isVictory(fields) {
 }
 
 function putSign(el){
+    if(isDone){
+        return;
+    }
     let fields = document.querySelectorAll("td > div");
     let c1 = document.getElementById("player");
     if(el.querySelector("div").className === ""){
         el.querySelector("div").className = c1.className;        
         if (isVictory(fields)){
-            console.log(c1.className);
-            alert(this.textContent);
+            isDone = true;
+            console.log(c1.className);            
         }
         changeClass(c1);        
     }    
