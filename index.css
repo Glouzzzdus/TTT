@@ -31,7 +31,7 @@ table{
     margin: auto;
 }
 
-th{
+.choise-player{
     height: 100px;
     font-size: 20px;
     font-weight: 400;
@@ -40,6 +40,28 @@ th{
     border: 2px solid white;
     border-radius: 15px;
     background-color: black; 
+}
+
+.winner-cross{
+    height: 100px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #fff;
+    font-family: "Titan One", sans-serif;
+    border: 2px solid white;
+    border-radius: 15px;
+    background: radial-gradient(circle, rgba(198,235,246,1) 52%, rgba(15,141,235,1) 100%);
+}
+
+.winner-ring{
+    height: 100px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #fff;
+    font-family: "Titan One", sans-serif;
+    border: 2px solid white;
+    border-radius: 15px;
+    background: radial-gradient(circle, rgba(242,219,200,1) 52%, rgba(235,73,15,1) 100%); 
 }
 
 td {

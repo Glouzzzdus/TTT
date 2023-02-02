@@ -54,15 +54,24 @@ function putSign(el){
     }
     let fields = document.querySelectorAll("td > div");
     let c1 = document.getElementById("player");
+    let winField = document.getElementsByTagName("th");
     if(el.querySelector("div").className === ""){
         el.querySelector("div").className = c1.className;        
         if (isVictory(fields)){
             isDone = true;
-            console.log(c1.className);            
+            if(c1.className = "cross"){
+                winField.classList.replace("choise-player", "winner-cross");
+            }
+            else{
+                winField.classList.replace("choise-player", "winner-ring");
+            }
+            return;          
         }
         changeClass(c1);        
     }    
 }
+
+
 
 
 
