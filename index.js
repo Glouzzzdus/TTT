@@ -70,8 +70,8 @@ function putSign(el){
         if (isVictory(fields)){
             isDone = true;
             if(c1.className === "cross"){
-                document.getElementById("player-title").className = "winner-cross";
-                document.getElementById("player-sign").className = "winner-cross";
+                document.getElementById("player-title").classList.add("winner-cross");
+                document.getElementById("player-sign").classList.add("winner-cross");
                 document.getElementById("player-title").textContent = "Cross won!!!";                                
             }
             else if(c1.className === "ring"){
@@ -81,7 +81,7 @@ function putSign(el){
             }
             return;          
         }
-        if (IsDraw(fields)){
+        if (!IsDraw(fields)){
             document.getElementById("player-title").textContent = "- DRAW -";
             return;
         }
