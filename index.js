@@ -1,5 +1,17 @@
 let isGameOver = false; //The flag of Game Over.
-let fields = document.querySelectorAll("td > div"); //Game cells.
+let fields = []; //Game cells.
+
+//Start game.
+function start() {    
+    fields = document.querySelectorAll("td > div");
+
+    let cells = document.querySelectorAll("td");
+    for(let cell of cells) {
+        cell.addEventListener("click", putSign);
+    }
+}
+
+window.addEventListener("load", start);
 
 function changeClass(el){
     el.classList.toggle("ring");
@@ -53,8 +65,8 @@ function isVictory(fields) {
 	return false;
 }
 //Checkin for a draw.
-function isDraw(fields){    
-    for (let field in fields){
+function isDraw(fields) {
+    for (let field of fields) {
         if (field.className === "empty"){
             return false;
         }        
@@ -62,7 +74,9 @@ function isDraw(fields){
     return true;
 }
 
-function putSign(el){    
+function putSign(e){
+    let el = e.target;
+    
     //Block clicking after win.
     if(isGameOver){
         return;
@@ -80,24 +94,18 @@ function putSign(el){
             document.getElementById("player-title").textContent = "Cross won!!!";                                
         }
         else if(c1.className === "ring"){
-            document.getElementById("player-title").className = "winner-rings";
-            document.getElementById("player-sign").className = "winner-rings";
+            document.getElementById("player-title").classList.add("winner-rings");
+            document.getElementById("player-sign").classList.add("winner-rings");
             document.getElementById("player-title").textContent = "Rings won!!!";
         }
         return;          
     }
     //Checking for a draw.
-    if (!isDraw(fields)){
+    if (isDraw(fields)){
         isGameOver = true;
         document.getElementById("player-title").textContent = "- DRAW -";
-        console.log("draw")
         return;
     }
     //Changing active player.
     changeClass(c1);     
 }
-
-
-
-
-
